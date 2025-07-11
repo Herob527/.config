@@ -1,0 +1,137 @@
+* {
+  font: "Roboto 10";
+
+  bg0    : #1f1f1f80;
+  bg1    : #202020bf;
+  bg2    : #2c2c2c;
+  bg3    : #393939bf;
+  fg0    : #ffffff;
+  fg1    : #cecece;
+  accent : #60cdff;
+  urgent : @accent;
+
+  background-color : transparent;
+  text-color       : @fg0;
+
+  margin  : 0;
+  padding : 0;
+  spacing : 0;
+}
+
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
+
+window {
+  location : southwest;
+  width    : 300px;
+  height   : 600px;
+  y-offset : 0px;
+
+  background-color : @bg1;
+}
+
+mainbox {
+  padding : 8px;
+  spacing : 4px;
+  children: [ mode-switcher, listview, inputbar ];
+}
+
+prompt {
+  spacing: 8px;
+  padding: 8px;
+  background-color: @accent;
+  text-color: @bg0;
+}
+
+mode-switcher {
+  spacing: 8px;
+  background-color: @bg2;
+}
+inputbar {
+  padding          : 8px;
+  spacing          : 8px;
+  children         : [  entry, icon-search ];
+  border           : 1px solid;
+  border-color     : @bg0;
+  background-color : white;
+}
+
+icon-search, entry, element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+icon-search {
+  expand   : false;
+  filename : "search-black";
+  size     : 16px;
+}
+
+entry {
+  font              : "Roboto 12";
+  placeholder       : "Type here to search";
+  placeholder-color : @fg1;
+  color             : @bg1;
+}
+
+textbox {
+  padding          : 4px 8px;
+  background-color : @bg2;
+}
+
+listview {
+  columns       : 1;
+  spacing       : 8px;
+  fixed-height  : true;
+  fixed-columns : true;
+}
+
+element {
+  spacing       : 1em;
+  padding       : 8px;
+}
+
+element normal urgent {
+  text-color: @urgent;
+}
+
+element normal active {
+  text-color: @accent;
+}
+
+element alternate active {
+  text-color: @accent;
+}
+
+element selected active {
+  text-color: @accent;
+}
+
+element selected {
+  background-color: @bg3;
+}
+
+element selected urgent {
+  background-color: @urgent;
+}
+
+element-icon {
+  size: 1.5em;
+}
+
+element-text {
+  text-color: inherit;
+}
+button {
+  padding: 4px 8px;
+  background-color: transparent;
+  text-color: @fg1;
+
+}
+button selected {
+  background-color: @accent;
+  text-color: @bg0;
+  width: 100%;
+  expand: false;
+  width: 0;
+}
