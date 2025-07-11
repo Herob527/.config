@@ -1,0 +1,31 @@
+[tools]
+ast-grep = "latest"
+cargo-binstall = "latest"
+"cargo:bob-nvim" = "latest"
+"cargo:eza" = "latest"
+"cargo:fnm" = "latest"
+"cargo:ripgrep" = "latest"
+"cargo:zellij" = "latest"
+"cargo:zoxide" = "latest"
+dotnet = "latest"
+fd = "latest"
+fzf = "latest"
+ghcup = "latest"
+go = "latest"
+"go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
+java = "latest"
+maven = "latest"
+"npm:pnpm" = "latest"
+pipx = "latest"
+"pipx:virtualfish" = "latest"
+poetry = "latest"
+rust = "latest"
+starship = "latest"
+usage = "latest"
+zig = "latest"
+zoxide = "latest"
+"cargo:https://github.com/oxalica/nil" = { version = "tag:2025-06-13", locked = true, crate="nil"}
+
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = ["node"]
