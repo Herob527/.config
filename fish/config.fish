@@ -13,6 +13,7 @@ fish_add_path -g
 set -gx PATH "/run/user/1000/fnm_multishells/22028_1736889187602/bin" $PATH;
 set PATH "$PATH:$HOME/.local/share/bob/nvim-bin"
 set PATH "$PATH:/home/szymon/.dotnet/tools"
+set PATH "$PATH:/home/szymon/.local/bin"
 set -gx FNM_MULTISHELL_PATH "/run/user/1000/fnm_multishells/22028_1736889187602";
 set -gx FNM_VERSION_FILE_STRATEGY "local";
 set -gx FNM_DIR "$HOME/.local/share/fnm";
