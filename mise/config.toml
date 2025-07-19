@@ -24,7 +24,7 @@ starship = "latest"
 usage = "latest"
 zig = "latest"
 zoxide = "latest"
-"cargo:https://github.com/oxalica/nil" = { version = "tag:2025-06-13", locked = true, crate="nil"}
+uv = "latest"
 
 [settings]
 experimental = true
