@@ -25,6 +25,8 @@ usage = "latest"
 zig = "latest"
 zoxide = "latest"
 uv = "latest"
+dart = "3.8.1"
+flutter = "latest"
 
 [settings]
 experimental = true
