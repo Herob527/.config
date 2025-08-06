@@ -69,3 +69,5 @@ alias svim "EDITOR=$(which nvim) sudoedit"
 alias gmtl "git mergetool"
 alias ls "eza --header --git --icons -w 64"
 
+alias gmc "git merge --continue"
+alias gma "git merge --abort"
