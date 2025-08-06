@@ -27,6 +27,7 @@ zoxide = "latest"
 uv = "latest"
 dart = "3.8.1"
 flutter = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
 
 [settings]
 experimental = true
