@@ -71,3 +71,16 @@ alias ls "eza --header --git --icons -w 64"
 
 alias gmc "git merge --continue"
 alias gma "git merge --abort"
+
+set description "
+Perform SQL query in docker database.
+
+Syntax: d_sql <container> <db> <query>
+"
+
+function d_sql -d "Perform SQL query in docker database" -a container -a db -a query
+  set -l command "psql -U postgres -d $db -c" 
+  set -l processed (string replace -a "\"" '\\"' $query )
+  set -l cmd (string join ' ' $command "\"$processed\";")
+  docker exec -it $container /bin/bash -c $cmd
+end
