@@ -252,7 +252,7 @@ set $gaming gaming
 
 assign [class="discord"] $comms
 assign [class="vesktop"] $comms
-assign [class="teams-for-linux"] $comms
+assign [app_id="com.github.IsmaelMartinez.teams_for_linux"] $comms
 
 assign [class="jetbrains-studio"] $jetbrains
 
