@@ -28,6 +28,7 @@ uv = "latest"
 dart = "3.8.1"
 flutter = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
+lazygit = "0.55.1"
 
 [settings]
 experimental = true
