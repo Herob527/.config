@@ -217,7 +217,7 @@ bindsym $mod+c workspace $comms
 bindsym $mod+n workspace $jetbrains
 bindsym $mod+g workspace $gaming
 bindsym $mod+r mode "resize"
-bindsym $mod+p exec 'flameshot gui --raw | wl-copy'
+bindsym $mod+p exec 'XDG_CURRENT_DESKTOP=Sway flameshot gui'
 set $ss_dir $(xdg-user-dir PICTURES)
 set $ss_file "${ss_dir}/ss_$(date +"%Y%m%d_%H%M%S").png"
 bindsym $mod+Shift+p exec grim -g "$(slurp)" "$ss_file"
