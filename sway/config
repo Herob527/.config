@@ -38,6 +38,7 @@ set $menu $rofi_cmd -show drun,combi -combi-modes run#drun -modes drun,combi
 # Requires: desktop-backgrounds-compat, swaybg
 output * bg /home/szymon/Pictures/Windows10.jpg fill
 output HDMI-A-1 mode 1920x1080@120.000Hz position 0,0
+output DP-2 mode 2560x1440@180.000Hz position 1920,0
 
 #
 # Example configuration:
