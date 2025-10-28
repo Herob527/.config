@@ -151,6 +151,8 @@ output DP-2 mode 2560x1440@120.000Hz position 1920,0 scale 1.35
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
     bindsym $mod+Shift+g move container to workspace $gaming
+    bindsym $mod+Control+Left move workspace to output left
+    bindsym $mod+Control+Right move workspace to output right
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -252,7 +254,7 @@ set $jetbrains jetbrains
 set $gaming gaming
 
 assign [class="discord"] $comms
-assign [class="vesktop"] $comms
+assign [app_id="vesktop"] $comms
 assign [app_id="com.github.IsmaelMartinez.teams_for_linux"] $comms
 
 assign [class="jetbrains-studio"] $jetbrains
@@ -275,3 +277,4 @@ client.background       #FFFFFF
 for_window [title="."] title_format "%title"
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen 
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
