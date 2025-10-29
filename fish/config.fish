@@ -12,8 +12,9 @@ fish_add_path -g
 set -gx PATH /run/user/1000/fnm_multishells/22028_1736889187602/bin $PATH
 
 set PATH "$PATH:$HOME/.local/share/bob/nvim-bin"
-set PATH "$PATH:/home/szymon/.dotnet/tools"
-set PATH "$PATH:/home/szymon/.local/bin"
+set PATH "$PATH:$HOME/.dotnet/tools"
+set PATH "$PATH:$HOME/.local/bin"
+set PATH "$PATH:$HOME/.pub-cache/bin"
 set -gx FNM_MULTISHELL_PATH /run/user/1000/fnm_multishells/22028_1736889187602
 
 set -gx FNM_VERSION_FILE_STRATEGY local
@@ -45,14 +46,11 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 function git_profile -d "Set git user name and email" -a profile
     set value $(echo $profile | string lower)
-    if test $value = work
-        git config user.name "Szymon Wrzos"
-        git config user.email "szymon.wrzos@bitapps.fi"
-    else if test $value = herob
+    if test $value = herob
         git config user.name Herob527
         git config user.email "szymon.wrzos@onet.pl"
     else
-        echo "usage: git_profile <work|herob>"
+        echo "usage: git_profile <herob>"
     end
 
 end
