@@ -14,12 +14,14 @@ ghcup = "latest"
 go = "latest"
 "go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
 java = "latest"
+jq = "latest"
 maven = "latest"
 "npm:pnpm" = "latest"
 pipx = "latest"
 "pipx:virtualfish" = "latest"
 poetry = "latest"
 rust = "latest"
+shfmt = "latest"
 starship = "latest"
 usage = "latest"
 zig = "latest"
@@ -29,6 +31,58 @@ dart = "3.8.1"
 flutter = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 lazygit = "0.55.1"
+
+# LSP Servers - npm-based
+"npm:pyright" = "latest"
+"npm:bash-language-server" = "latest"
+"npm:fish-lsp" = "latest"
+"npm:vscode-langservers-extracted" = "latest"  # provides cssls, html, jsonls, eslint
+"npm:some-sass-language-server" = "latest"
+"npm:unocss-language-server" = "latest"
+"npm:@volar/vue-language-server" = "latest"
+"npm:@vue/language-server" = "latest"
+"npm:@vue/typescript-plugin" = "latest"
+"npm:@vtsls/language-server" = "latest"
+"npm:@olrtg/emmet-language-server" = "latest"
+"npm:stylelint-lsp" = "latest"
+"npm:@mdx-js/language-server" = "latest"
+"npm:yaml-language-server" = "latest"
+"npm:@astrojs/language-server" = "latest"
+"npm:graphql-language-service-cli" = "latest"
+"npm:dockerfile-language-server-nodejs" = "latest"
+"npm:oxlint" = "latest"
+"npm:@tailwindcss/language-server" = "latest"
+
+# LSP Servers - pipx-based (isolated Python environments)
+"pipx:ruff-lsp" = "latest"
+"pipx:nginx-language-server" = "latest"
+
+# LSP Servers - cargo-based
+"cargo:stylua" = "latest"
+"cargo:gitlab-ci-ls" = "latest"
+
+# Linters - cargo-based
+"cargo:selene" = "latest"
+
+# LSP Servers - ubi-based (GitHub releases)
+"ubi:kitten/prosemd-lsp" = "latest"
+"ubi:tekumara/typos-lsp" = "latest"
+
+# LSP Servers - mise core or plugins
+lua-language-server = "latest"
+marksman = "latest"
+terraform-ls = "latest"
+
+# Formatters - npm
+"npm:prettier" = "latest"
+"npm:@fsouza/prettierd" = "latest"
+"npm:markdownlint-cli" = "latest"
+"npm:rustywind" = "latest"
+
+# Formatters - pipx
+"pipx:black" = "latest"
+"pipx:nginxfmt" = "latest"
+"pipx:xmlformatter" = "latest"
 
 [settings]
 experimental = true
