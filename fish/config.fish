@@ -12,6 +12,7 @@ fish_add_path -g
 set -gx PATH /run/user/1000/fnm_multishells/22028_1736889187602/bin $PATH
 
 set PATH "$PATH:$HOME/.local/share/bob/nvim-bin"
+set PATH "$PATH:$HOME/.local/share/mise"
 set PATH "$PATH:$HOME/.dotnet/tools"
 set PATH "$PATH:$HOME/.local/bin"
 set PATH "$PATH:$HOME/.pub-cache/bin"
