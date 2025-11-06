@@ -1,89 +1,40 @@
 [tools]
-ast-grep = "latest"
-cargo-binstall = "latest"
-"cargo:bob-nvim" = "latest"
-"cargo:eza" = "latest"
-"cargo:fnm" = "latest"
-"cargo:ripgrep" = "latest"
-"cargo:zellij" = "latest"
-"cargo:zoxide" = "latest"
-dotnet = "latest"
-fd = "latest"
-fzf = "latest"
-ghcup = "latest"
-go = "latest"
-"go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
-java = "latest"
-jq = "latest"
-maven = "latest"
-"npm:pnpm" = "latest"
-pipx = "latest"
-"pipx:virtualfish" = "latest"
-poetry = "latest"
-rust = "latest"
-shfmt = "latest"
-starship = "latest"
-usage = "latest"
-zig = "latest"
-zoxide = "latest"
-uv = "latest"
-dart = "3.8.1"
-flutter = "latest"
-"npm:@anthropic-ai/claude-code" = "latest"
+ast-grep = "0.39.7"
+cargo-binstall = "1.15.10"
+"cargo:bob-nvim" = "4.1.4"
+"cargo:eza" = "0.23.4"
+"cargo:fnm" = "1.38.1"
+"cargo:ripgrep" = "15.1.0"
+"cargo:zellij" = "0.43.1"
+"cargo:zoxide" = "0.9.8"
+dotnet = "9.0.306"
+fd = "10.3.0"
+fzf = "0.66.1"
+ghcup = "0.1.50.2"
+go = "1.25.3"
+"go:github.com/docker/docker-language-server/cmd/docker-language-server" = "0.20.1"
+java = "25.0.1"
+jq = "1.8.1"
+maven = "3.9.11"
+"npm:pnpm" = "10.20.0"
+pipx = "1.8.0"
+"pipx:virtualfish" = "2.5.9"
+poetry = "2.2.1"
+rust = "1.91.0"
+shfmt = "3.12.0"
+starship = "1.24.0"
+usage = "2.6.0"
+zig = "0.15.2"
+zoxide = "0.9.8"
+uv = "0.9.7"
+dart = "3.9.4"
+flutter = "3.35.7-stable"
+"npm:@anthropic-ai/claude-code" = "2.0.32"
 lazygit = "0.55.1"
-
-# LSP Servers - npm-based
-"npm:pyright" = "latest"
-"npm:bash-language-server" = "latest"
-"npm:fish-lsp" = "latest"
-"npm:vscode-langservers-extracted" = "latest"  # provides cssls, html, jsonls, eslint
-"npm:some-sass-language-server" = "latest"
-"npm:unocss-language-server" = "latest"
-"npm:@volar/vue-language-server" = "latest"
-"npm:@vue/language-server" = "latest"
-"npm:@vue/typescript-plugin" = "latest"
-"npm:@vtsls/language-server" = "latest"
-"npm:@olrtg/emmet-language-server" = "latest"
-"npm:stylelint-lsp" = "latest"
-"npm:@mdx-js/language-server" = "latest"
-"npm:yaml-language-server" = "latest"
-"npm:@astrojs/language-server" = "latest"
-"npm:graphql-language-service-cli" = "latest"
-"npm:dockerfile-language-server-nodejs" = "latest"
-"npm:oxlint" = "latest"
-"npm:@tailwindcss/language-server" = "latest"
-
-# LSP Servers - pipx-based (isolated Python environments)
-"pipx:ruff-lsp" = "latest"
-"pipx:nginx-language-server" = "latest"
-
-# LSP Servers - cargo-based
-"cargo:stylua" = "latest"
-"cargo:gitlab-ci-ls" = "latest"
-
-# Linters - cargo-based
-"cargo:selene" = "latest"
-
-# LSP Servers - ubi-based (GitHub releases)
-"ubi:kitten/prosemd-lsp" = "latest"
-"ubi:tekumara/typos-lsp" = "latest"
-
-# LSP Servers - mise core or plugins
-lua-language-server = "latest"
-marksman = "latest"
-terraform-ls = "latest"
-
-# Formatters - npm
-"npm:prettier" = "latest"
-"npm:@fsouza/prettierd" = "latest"
-"npm:markdownlint-cli" = "latest"
-"npm:rustywind" = "latest"
-
-# Formatters - pipx
-"pipx:black" = "latest"
-"pipx:nginxfmt" = "latest"
-"pipx:xmlformatter" = "latest"
 
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = ["node"]
+
+[settings.npm]
+bun = true
