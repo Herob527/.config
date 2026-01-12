@@ -30,15 +30,15 @@ set $rofi_cmd rofi \
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
 set $menu $rofi_cmd -show drun,combi -combi-modes run#drun -modes drun,combi 
-set $hdmi_output "HDMI-A-1"
-set $dp_output "DP-2"
+set $primary_dp "DP-1"
+set $secondary_dp "DP-2"
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output $hdmi_output mode 1920x1080@120.000Hz position 0,0
-output $dp_output mode 2560x1440@180.000Hz position 1920,0 scale 1.33333333
+output $secondary_dp mode 1920x1080@180.000Hz position 0,0 adaptive_sync on
+output $primary_dp mode 2560x1440@180.000Hz position 1920,0 scale 1.33333333 scale_filter smart adaptive_sync on
 output * bg /home/szymon/Pictures/Windows10.jpg fill
 #
 # Example configuration:
