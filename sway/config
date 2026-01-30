@@ -279,3 +279,5 @@ for_window [title="."] title_format "%title"
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen 
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+bar swaybar_command waybar
+
