@@ -31,6 +31,7 @@ set -gx FNM_COREPACK_ENABLED false
 set -gx FNM_RESOLVE_ENGINES true
 
 set -gx FNM_ARCH x64
+set -gx EDITOR $(which nvim)
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 set -gx PATH $HOME/.cabal/bin $PATH $HOME/.ghcup/bin # ghcup-env
