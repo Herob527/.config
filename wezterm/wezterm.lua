@@ -17,6 +17,7 @@ config.window_padding = {
 config.keys = {
 	{ key = "L", mods = "CTRL", action = wezterm.action.ShowDebugOverlay },
 }
+
 local frappe = wezterm.color.get_builtin_schemes()["catppuccin-frappe"]
 
 function tab_title(tab_info)
