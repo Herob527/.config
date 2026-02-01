@@ -1,8 +1,8 @@
 mise activate fish | source
 
-if status is-interactive
-    eval (zellij setup --generate-auto-start fish | string collect)
-end
+# if status is-interactive
+#     eval (zellij setup --generate-auto-start fish | string collect)
+# end
 
 set EDITOR $(which nvim)
 set VISUAL $(which nvim)
