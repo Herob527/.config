@@ -55,7 +55,7 @@ end)
 config.font = wezterm.font("InconsolataNerdFont")
 config.font_size = 14
 config.color_scheme = "Catppuccin Frappe"
-print(frappe)
+
 config.window_frame = {
 	-- The font used in the tab bar.
 	-- Roboto Bold is the default; this font is bundled
