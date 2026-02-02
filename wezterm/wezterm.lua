@@ -47,8 +47,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return title
 end)
 
-config.font = wezterm.font("InconsolataNerdFont")
-config.font_size = 14
+config.font = wezterm.font({ family = "JetBrains Mono", weight = "Light" })
+config.font_size = 12
 config.color_scheme = "Catppuccin Frappe"
 
 config.window_frame = {
