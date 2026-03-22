@@ -30,6 +30,7 @@ set $rofi_cmd rofi \
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
 set $menu $rofi_cmd -show drun,combi -combi-modes run#drun -modes drun,combi 
+set $power_menu $rofi_cmd -show power-menu -modi power-menu:rofi-power-menu 
 set $primary_dp "DP-1"
 set $secondary_dp "DP-2"
 
@@ -86,6 +87,7 @@ output * bg /home/szymon/Pictures/Windows10.jpg fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+F4 exec $power_menu -config ~/.config/rofi/power-menu.rasi
 
     bindsym Alt+Tab exec rofi -show window -modes window -show-icons -theme launchpad
 
