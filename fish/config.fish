@@ -1,50 +1,51 @@
+# Disable usage-based completions to avoid environment size issues
+set -gx MISE_FISH_NO_USAGE 1
 mise activate fish | source
 
 # if status is-interactive
 #     eval (zellij setup --generate-auto-start fish | string collect)
 # end
 
-set EDITOR $(which nvim)
-set VISUAL $(which nvim)
-starship init fish | source
-fish_add_path -g
+# Deduplicate PATH to prevent it from growing too large
+set -l new_path
+for p in $PATH
+    if not contains $p $new_path
+        set new_path $new_path $p
+    end
+end
+set -gx PATH $new_path
 
-set -gx PATH /run/user/1000/fnm_multishells/22028_1736889187602/bin $PATH
+# Deduplicate XDG_DATA_DIRS
+set -l new_xdg
+for p in $XDG_DATA_DIRS
+    if not contains $p $new_xdg
+        set new_xdg $new_xdg $p
+    end
+end
+set -gx XDG_DATA_DIRS $new_xdg
 
-set PATH "$PATH:$HOME/.local/share/bob/nvim-bin"
-set PATH "$PATH:$HOME/.local/share/mise"
-set PATH "$PATH:$HOME/.dotnet/tools"
-set PATH "$PATH:$HOME/.local/bin"
-set PATH "$PATH:$HOME/.pub-cache/bin"
-set -gx FNM_MULTISHELL_PATH /run/user/1000/fnm_multishells/22028_1736889187602
-
-set -gx FNM_VERSION_FILE_STRATEGY local
-
-set -gx FNM_DIR "$HOME/.local/share/fnm"
-
-set -gx FNM_LOGLEVEL info
-
-set -gx FNM_NODE_DIST_MIRROR "https://nodejs.org/dist"
-
-set -gx FNM_COREPACK_ENABLED false
-
-set -gx FNM_RESOLVE_ENGINES true
-
-set -gx FNM_ARCH x64
 set -gx EDITOR $(which nvim)
+set -gx VISUAL $(which nvim)
+starship init fish | source
 
+# Add paths only if not already present
+fish_add_path -g $HOME/.local/share/bob/nvim-bin
+fish_add_path -g $HOME/.dotnet/tools
+fish_add_path -g $HOME/.local/bin
+fish_add_path -g $HOME/.pub-cache/bin
+
+# XDG_DATA_DIRS
+contains "$HOME/Desktop" $XDG_DATA_DIRS; or set -gx XDG_DATA_DIRS $XDG_DATA_DIRS $HOME/Desktop
+
+# GHCUP
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
-set -gx PATH $HOME/.cabal/bin $PATH $HOME/.ghcup/bin # ghcup-env
+fish_add_path -g $HOME/.cabal/bin $HOME/.ghcup/bin
 
 type -q node
 
-if test $status -eq 1
-    fnm use default
-end
-
 # bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
+set -gx BUN_INSTALL "$HOME/.bun"
+fish_add_path -g $BUN_INSTALL/bin
 
 function git_profile -d "Set git user name and email" -a profile
     set value $(echo $profile | string lower)
@@ -89,5 +90,23 @@ function d_sql -d "Perform SQL query in docker database" -a container -a db -a q
     set -l command "psql -U postgres -d $db -c"
     set -l processed (string replace -a "\"" '\\"' $query )
     set -l cmd (string join ' ' $command "\"$processed\";")
-    docker exec -it $container /bin/bash -c $cmd
+    echo docker exec -it $container /bin/bash -c $cmd
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/szymon/.local/share/mise/installs/conda/26.1.1/bin/conda
+    eval /home/szymon/.local/share/mise/installs/conda/26.1.1/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/home/szymon/.local/share/mise/installs/conda/26.1.1/etc/fish/conf.d/conda.fish"
+        . "/home/szymon/.local/share/mise/installs/conda/26.1.1/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/home/szymon/.local/share/mise/installs/conda/26.1.1/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+
+
+# Added by get-aspire-cli.sh
+fish_add_path $HOME/.aspire/bin
+fish_add_path /opt/flameshot/bin

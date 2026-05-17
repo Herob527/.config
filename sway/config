@@ -223,7 +223,8 @@ bindsym $mod+c workspace $comms
 bindsym $mod+n workspace $jetbrains
 bindsym $mod+g workspace $gaming
 bindsym $mod+r mode "resize"
-bindsym $mod+p exec 'XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORM=wayland flameshot gui'
+bindsym $mod+p exec 'flameshot gui'
+bindsym $mod+Ctrl+p exec 'flameshot config'
 set $ss_dir $(xdg-user-dir PICTURES)
 set $ss_file "${ss_dir}/ss_$(date +"%Y%m%d_%H%M%S").png"
 bindsym $mod+Shift+p exec grim -g "$(slurp)" - | wl-copy
@@ -282,3 +283,5 @@ for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen 
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
+exec wl-paste --watch cliphist store
+for_window [app_id="org.wezfurlong.wezterm"] max_render_time off
