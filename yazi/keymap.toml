@@ -1,0 +1,4 @@
+[[mgr.append_keymap]]
+on = "<C-k>"
+run = "shell -- killall mpv"
+desc = "Kill mpv"

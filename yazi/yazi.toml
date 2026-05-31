@@ -1,0 +1,9 @@
+[opener]
+play = [{ run = 'mpv "$@"', orphan = true, desc = "Play with mpv" }]
+
+edit_audio = [
+  { run = 'flatpak run org.audacityteam.Audacity "$@"', orphan = true, desc = "Edit with Audacity" }
+]
+
+[open]
+prepend_rules = [{ mime = "audio/*", use = ["play", "edit_audio"] }]
