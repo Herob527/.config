@@ -268,6 +268,10 @@ assign [class="^Minecraft"] $gaming
 assign [class="Crystal Launcher"] $gaming
 assign [class="steam_app_*"] $gaming
 assign [app_id="gamescope"] $gaming
+# Strictly for ESO to be in proper workspace
+assign [app_id="eso64.exe"] $gaming
+assign [app_id="bethesda.net_launcher.exe"] $gaming
+assign [app_id="explorer.exe"] $gaming
 
 smart_borders on
 # class                 border     bground    text      indicator child_border
