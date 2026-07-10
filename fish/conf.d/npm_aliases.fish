@@ -8,6 +8,8 @@ function detect_package_manager
         echo pnpm
     else if test -f "yarn.lock"
         echo yarn
+    else if test -f "aube-lock.yaml"
+        echo aube
     else if test -f "package-lock.json"; or test -f "package.json"
         echo npm
         # Flutter or dart
@@ -36,6 +38,7 @@ function which_pm
             echo "  - no          : Check outdated packages (bun outdated)"
             echo "  - nu [package]: Update packages (bun update [package])"
             echo "  - nst         : Start project (bun run start, fallback to dev)"
+            echo "  - nun [package]: Remove package (bun remove [package])"
         case pnpm
             echo "Commands to use:"
             echo "  - ni          : Install dependencies (pnpm install) or add package with args (pnpm add [package])"
@@ -43,6 +46,7 @@ function which_pm
             echo "  - no          : Check outdated packages (pnpm outdated)"
             echo "  - nu [package]: Update packages (pnpm update [package])"
             echo "  - nst         : Start project (pnpm start, fallback to dev)"
+            echo "  - nun [package]: Remove package (pnpm remove [package])"
         case yarn
             echo "Commands to use:"
             echo "  - ni          : Install dependencies (yarn) or add package with args (yarn add [package])"
@@ -50,6 +54,7 @@ function which_pm
             echo "  - no          : Check outdated packages (yarn outdated)"
             echo "  - nu [package]: Update packages (yarn upgrade [package])"
             echo "  - nst         : Start project (yarn start, fallback to dev)"
+            echo "  - nun [package]: Remove package (yarn remove [package])"
         case npm
             echo "Commands to use:"
             echo "  - ni          : Install dependencies (npm install) or add package with args (npm install [package])"
@@ -57,6 +62,15 @@ function which_pm
             echo "  - no          : Check outdated packages (npm outdated)"
             echo "  - nu [package]: Update packages (npm update [package])"
             echo "  - nst         : Start project (npm start, fallback to dev)"
+            echo "  - nun [package]: Remove package (npm uninstall [package])"
+        case aube
+            echo "Commands to use:"
+            echo "  - ni          : Install dependencies (aube install) or add package with args (aube install [package])"
+            echo "  - nr [script] : Run a script (aube run [script])"
+            echo "  - no          : Check outdated packages (aube outdated)"
+            echo "  - nu [package]: Update packages (aube update [package])"
+            echo "  - nst         : Start project (aube start, fallback to dev)"
+            echo "  - nun [package]: Remove package (aube uninstall [package])"
         case flutter
             echo "Commands to use:"
             echo "  - ni          : Install dependencies (flutter pub get) or add package with args (flutter pub add [package])"
@@ -64,6 +78,7 @@ function which_pm
             echo "  - no          : Check outdated packages (flutter pub outdated)"
             echo "  - nu [package]: Update packages (flutter pub upgrade [package])"
             echo "  - nst         : Start/run the app (flutter run)"
+            echo "  - nun [package]: Remove package (flutter pub remove [package])"
         case dart
             echo "Commands to use:"
             echo "  - ni          : Install dependencies (dart pub get) or add package with args (dart pub add [package])"
@@ -71,6 +86,7 @@ function which_pm
             echo "  - no          : Check outdated packages (dart pub outdated)"
             echo "  - nu [package]: Update packages (dart pub upgrade [package])"
             echo "  - nst         : Start/run project (dart run)"
+            echo "  - nun [package]: Remove package (dart pub remove [package])"
     end
 end
 
@@ -89,6 +105,8 @@ function ni
                 yarn
             case npm
                 npm install
+            case aube
+                aube install
             case flutter
                 flutter pub get
             case dart
@@ -105,6 +123,8 @@ function ni
                 yarn add $argv
             case npm
                 npm install $argv
+            case aube
+                aube install $argv
             case flutter
                 flutter pub add $argv
             case dart
@@ -126,6 +146,8 @@ function nr
             yarn $argv[1] $argv[2..-1]
         case npm
             npm run $argv
+        case aube
+            aube run $argv
         case flutter
             flutter run $argv
         case dart
@@ -145,6 +167,8 @@ function no
             yarn outdated $argv
         case npm
             npm outdated $argv
+        case aube
+            aube outdated $argv
         case flutter
             flutter pub outdated $argv
         case dart
@@ -164,10 +188,34 @@ function nu
             yarn upgrade $argv
         case npm
             npm update $argv
+        case aube
+            aube update $argv
         case flutter
             flutter pub upgrade $argv
         case dart
             dart pub upgrade $argv
+    end
+end
+
+# Function to remove/uninstall packages
+function nun
+    set -l pm (detect_package_manager)
+
+    switch $pm
+        case bun
+            bun remove $argv
+        case pnpm
+            pnpm remove $argv
+        case yarn
+            yarn remove $argv
+        case npm
+            npm uninstall $argv
+        case aube
+            aube uninstall $argv
+        case flutter
+            flutter pub remove $argv
+        case dart
+            dart pub remove $argv
     end
 end
 
@@ -193,6 +241,8 @@ function nst
                         yarn start
                     case npm
                         npm start
+                    case aube
+                        aube start
                 end
             else
                 switch $pm
@@ -204,6 +254,8 @@ function nst
                         yarn dev
                     case npm
                         npm run dev
+                    case aube
+                        aube run dev
                 end
             end
     end
