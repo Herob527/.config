@@ -38,8 +38,8 @@ set $secondary_dp "DP-2"
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output $secondary_dp mode 1920x1080@180.000Hz position 0,0 adaptive_sync on
-output $primary_dp mode 2560x1440@180.000Hz position 1920,0 scale 1.33333333 scale_filter smart adaptive_sync on
+output $secondary_dp mode 1920x1080@120.000Hz position 0,0 adaptive_sync on
+output $primary_dp mode 2560x1440@120.000Hz position 1920,0 scale 1.33333333 scale_filter smart adaptive_sync on
 output * bg /home/szymon/Pictures/Windows10.jpg fill
 #
 # Example configuration:
