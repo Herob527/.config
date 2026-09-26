@@ -103,6 +103,14 @@ output * bg /home/szymon/Pictures/Windows10.jpg fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+#
+# Recording:
+#
+bindsym $mod+m+Right exec "record DP-1"
+bindsym $mod+m+Left exec "record DP-2"
+bindsym $mod+m+Up exec "killall wf-recorder"
+
 #
 # Moving around:
 #
